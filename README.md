@@ -1,20 +1,22 @@
-# WhaDev
+# Remote Control SE
 
 Claude Code remote control via Telegram. 1 file. 175 lines. $0.
 
+If Claude RC is iOS, this is Android. Open, free, yours.
+
 ```
-Phone (Telegram)  -->  WhaDev (Node.js)  -->  Claude Code CLI
-                                                    |
-                                              Your project dir
-                                                    |
-                                              Result back to phone
+Phone (Telegram)  -->  Remote Control SE (Node.js)  -->  Claude Code CLI
+                                                              |
+                                                        Your project dir
+                                                              |
+                                                        Result back to phone
 ```
 
-## Why
+## Why This Exists
 
-Claude Remote Control broke. Instead of debugging someone else's tool, I built my own.
+Claude Remote Control broke. Instead of debugging someone else's tool, I built my own in 175 lines.
 
-WhaDev lets you send prompts to Claude Code from your phone. Fix bugs from the couch. Deploy from the grocery store. Review code from bed. Whatever.
+Send prompts to Claude Code from your phone. Fix bugs from the couch. Deploy from the grocery store. Review code from bed.
 
 It's a Telegram bot that shells out to `claude` CLI in your project directory and sends the result back. That's it.
 
@@ -32,8 +34,8 @@ It's a Telegram bot that shells out to `claude` CLI in your project directory an
 ### 3. Install and run
 
 ```bash
-git clone https://github.com/reshevyas-png/whadev.git
-cd whadev
+git clone https://github.com/reshevyas-png/remote-control-se.git
+cd remote-control-se
 npm install
 cp .env.example .env
 # Fill in your bot token, user ID, and project path
@@ -56,9 +58,9 @@ Done. That's the whole setup.
 ## How It Works
 
 1. You send a message to your Telegram bot
-2. WhaDev checks your user ID against the allowlist
+2. Remote Control SE checks your user ID against the allowlist
 3. Sanitizes the input (strips shell injection characters)
-4. Spawns `claude --dangerously-skip-permissions -p "your prompt"` in your project directory
+4. Spawns `claude -p "your prompt"` in your project directory
 5. Sends the output back to Telegram (chunked at 4096 chars)
 
 No server. No database. No API keys beyond what you already have. Runs on your laptop.
@@ -80,13 +82,24 @@ Change one line in `.env`:
 AI_DRIVER=aider    # instead of "claude"
 ```
 
-WhaDev will shell out to `aider --yes --no-auto-commits --message "your prompt"` instead.
+Remote Control SE will use `aider --yes --no-auto-commits --message "your prompt"` instead.
 
 ## Requirements
 
 - Node.js 18+
 - `claude` CLI installed: `npm install -g @anthropic-ai/claude-code`
 - A Telegram account
+
+## Remote Control SE vs Claude RC
+
+| | Remote Control SE | Claude RC |
+|---|---|---|
+| Cost | $0 | Paid |
+| Open source | Yes (MIT) | No |
+| Dependencies | 2 | Unknown |
+| Lines of code | 175 | Unknown |
+| Works with Aider | Yes | No |
+| You own it | Yes | No |
 
 ## What This Isn't
 

@@ -1,7 +1,7 @@
-# Whadev
+# Remote Control SE
 
 ## Role
-Lightweight bridge that lets developers control Claude Code (or aider) from Telegram via natural language. Runs on the developer's laptop. Single Node.js file. Goal: Reddit validation, not production scale.
+Open-source Claude Code remote control via Telegram. If Claude RC is iOS, this is Android. Runs on the developer's laptop. Single Node.js file. Goal: HN + Reddit validation, not production scale.
 
 ```
 Phone (Telegram) → node-telegram-bot-api polling → index.js → claude CLI → stdout → back to phone
@@ -33,7 +33,7 @@ Phone (Telegram) → node-telegram-bot-api polling → index.js → claude CLI �
 
 ## Tech Stack
 - Language: Node.js
-- Dependencies: `dotenv`, `node-telegram-bot-api` (nothing else)
+- Dependencies: `dotenv`, `grammy` (nothing else)
 - AI Drivers: `claude` CLI or `aider` CLI (shelled out via `exec()`)
 
 ## Data Ownership

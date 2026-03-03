@@ -172,4 +172,4 @@ bot.on('message', async (ctx) => {
 bot.catch((err) => console.error('[polling error]', err.message));
 
 bot.start();
-console.log(`Whadev running — driver=${DRIVER} dir=${WORKING_DIR}`);
+console.log(`Remote Control SE running — driver=${DRIVER} dir=${WORKING_DIR}`);

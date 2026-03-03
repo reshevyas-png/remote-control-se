@@ -1,7 +1,7 @@
 {
-  "name": "whadev",
+  "name": "remote-control-se",
   "version": "1.0.0",
-  "description": "Control Claude Code from Telegram",
+  "description": "Claude Code remote control via Telegram. The open-source alternative.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
