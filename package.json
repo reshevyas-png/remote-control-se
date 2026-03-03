@@ -1,0 +1,13 @@
+{
+  "name": "whadev",
+  "version": "1.0.0",
+  "description": "Control Claude Code from Telegram",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "grammy": "^1.30.0"
+  }
+}
