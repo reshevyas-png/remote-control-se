@@ -4,6 +4,10 @@ Claude Code remote control via Telegram. 1 file. 175 lines. $0.
 
 If Claude RC is iOS, this is Android. Open, free, yours.
 
+<p align="center">
+  <img src="demo.png" alt="Remote Control SE in action" width="350">
+</p>
+
 ```
 Phone (Telegram)  -->  Remote Control SE (Node.js)  -->  Claude Code CLI
                                                               |

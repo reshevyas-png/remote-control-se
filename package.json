@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "Claude Code remote control via Telegram. The open-source alternative.",
   "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reshevyas-png/remote-control-se.git"
+  },
+  "keywords": ["claude-code", "telegram-bot", "remote-control", "aider", "ai-coding"],
   "scripts": {
     "start": "node index.js"
   },

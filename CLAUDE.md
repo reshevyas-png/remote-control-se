@@ -4,7 +4,7 @@
 Open-source Claude Code remote control via Telegram. If Claude RC is iOS, this is Android. Runs on the developer's laptop. Single Node.js file. Goal: HN + Reddit validation, not production scale.
 
 ```
-Phone (Telegram) → node-telegram-bot-api polling → index.js → claude CLI → stdout → back to phone
+Phone (Telegram) → grammy polling → index.js → claude CLI → stdout → back to phone
 ```
 
 ## Boundaries
@@ -34,7 +34,7 @@ Phone (Telegram) → node-telegram-bot-api polling → index.js → claude CLI �
 ## Tech Stack
 - Language: Node.js
 - Dependencies: `dotenv`, `grammy` (nothing else)
-- AI Drivers: `claude` CLI or `aider` CLI (shelled out via `exec()`)
+- AI Drivers: `claude` CLI or `aider` CLI (spawned via `spawn()`, no shell)
 
 ## Data Ownership
 - This project owns: nothing (no database, no files written)
@@ -53,16 +53,16 @@ COMMAND_TIMEOUT_MS=60000   # 60 seconds default
 
 ## Driver Contract
 
-Each driver takes a sanitized prompt string and returns a shell command:
+Each driver maps to a binary and base args, executed via `spawn()` (no shell):
 
 ```js
-const DRIVERS = {
-  claude: (prompt) => `claude --dangerously-skip-permissions -p "${sanitize(prompt)}"`,
-  aider:  (prompt) => `aider --message "${sanitize(prompt)}" --yes --no-auto-commits`,
+const DRIVER_BINS = {
+  claude: ['/opt/homebrew/bin/claude', ['--dangerously-skip-permissions', '-p']],
+  aider:  ['aider', ['--yes', '--no-auto-commits', '--message']],
 };
 ```
 
-When adding a new driver: add to DRIVERS map, test manually in headless mode, document flags in `.env.example`.
+When adding a new driver: add to DRIVER_BINS map, test manually in headless mode, document flags in `.env.example`.
 
 ## Input Sanitization
 
